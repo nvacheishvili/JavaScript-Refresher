@@ -1,18 +1,39 @@
-//How to declare an object - using {}
-const person = {
-    name: 'Nata',
-    age: 26,
-    // greet: () => {
-    //     console.log("Hi my name is "+this.name); -- this.name refers to global scope, not the object's therefore it this.name here would be undefined
-    // },
-    greet: function() {
-        //this.name here would have a value of Nata, since it refers to the scope of the object itself
-        console.log("Hi my name is ", this.name)
-    }
+//How to create an array that can create different data types
+const hobbies = ["sports", "cooking", 25, true, {name: "braking"}, ["reading", "traveling"]]
+
+//To see the values of the array using console.log run this file
+console.log(hobbies)
+
+//how to loop through an array?
+for(let hobby of hobbies){
+    //perform any number of operations here
+
+    //this will console log individual elements of an array
+    console.log(hobby);
 }
 
-//See the output of a person
-console.log(person);
+// for(let index in hobbies){
+//     //this would achieve the same result as above for loop
+//     console.log(hobbies[index]);
+// }
 
-//See the output of greet function
-person.greet()
+
+let hobbiesArray = ["sports", "cooking", "painting"];
+
+//how to create a subset? This would grab all the elements [0,2) (excluding the 2nd index element)
+let hobbiesSubset = hobbiesArray.slice(0,2);
+//this would output sports and cooking
+console.log(hobbiesSubset);
+
+//how to filter array?
+let filteredHobbies = hobbiesArray.filter((val) => val !== "sports");
+//returns an array with everything inside it except for elements that equal "sports"
+console.log(filteredHobbies);
+
+//what is a map method - it returns a new array from the original array and takes a function as
+// an argument and defines how to transform the element and returns a new array
+
+//this adds a string hobby: in the beginning of each of the values inside the hobbies array
+let updatedHobbies = hobbiesArray.map((value, index) => "hobby: "+value);
+//see the value of updated hobbies
+console.log(updatedHobbies);
