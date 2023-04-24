@@ -1,15 +1,24 @@
-//How to declare a variable?
+//How to declare a variable
+//var is an outdated way to declare a variable, from now on we are going to be using let
 
-var name = "Nata"; //example of string
-var age = 26; //example of number
-var userHobbies = true; //example of boolean
+//If a variable's value should never change make it constant (const) so that you get an error if you accidentally change it
+const name = "Nata"; //example of string that cannot be changed because it is a constant
+
+let age = 26; //example of number
+let userHobbies = true; //example of boolean
 
 //Run this file in your terminal to see outputted result by console.log
 //It should output: Nata
 console.log(name, age, userHobbies);
 
 
-var nameAgeCombination = name+age; //Global Variable
+let nameAgeCombination = name+age; //Global Variable
+
+//If you uncomment the line below, you are going to get an error when running this file stating that you are assigning
+// a value to constant variable
+
+// name="Nata Vacheishvili"
+
 //How to declare a function
 /***
  *
