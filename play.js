@@ -1,39 +1,26 @@
-//How to create an array that can create different data types
-const hobbies = ["sports", "cooking", 25, true, {name: "braking"}, ["reading", "traveling"]]
+//constant variable array
+const hobbies = ["reading", "cooking"];
 
-//To see the values of the array using console.log run this file
-console.log(hobbies)
+//Adding one more element to the end of the array even though it's a constant
+hobbies.push("programming");
+console.log(hobbies); //no error about editing a constant value
 
-//how to loop through an array?
-for(let hobby of hobbies){
-    //perform any number of operations here
+//reference types only store an address pointing to the memory location where the array is stored
+//when we change an array the address points to the same location in memory
+//therefore, we are not actually editing the variable value, but the value its pointing to
+//these rules also apply to objects
 
-    //this will console log individual elements of an array
-    console.log(hobby);
+const hobbiesObject = {
+    name: 'Nata',
+    type: 'Programming'
 }
 
-// for(let index in hobbies){
-//     //this would achieve the same result as above for loop
-//     console.log(hobbies[index]);
-// }
+//Adding a new property to the object
+hobbiesObject.age = 26;
 
+console.log(hobbiesObject);
 
-let hobbiesArray = ["sports", "cooking", "painting"];
-
-//how to create a subset? This would grab all the elements [0,2) (excluding the 2nd index element)
-let hobbiesSubset = hobbiesArray.slice(0,2);
-//this would output sports and cooking
-console.log(hobbiesSubset);
-
-//how to filter array?
-let filteredHobbies = hobbiesArray.filter((val) => val !== "sports");
-//returns an array with everything inside it except for elements that equal "sports"
-console.log(filteredHobbies);
-
-//what is a map method - it returns a new array from the original array and takes a function as
-// an argument and defines how to transform the element and returns a new array
-
-//this adds a string hobby: in the beginning of each of the values inside the hobbies array
-let updatedHobbies = hobbiesArray.map((value, index) => "hobby: "+value);
-//see the value of updated hobbies
-console.log(updatedHobbies);
+//primitive type and not a reference type since this is a number
+const number = 12
+//reassigning this will not work since it is not a reference type variable
+// number = 13;
