@@ -1,26 +1,28 @@
-//constant variable array
-const hobbies = ["reading", "cooking"];
+const hobbies = ["sports", "cooking"];
 
-//Adding one more element to the end of the array even though it's a constant
-hobbies.push("programming");
-console.log(hobbies); //no error about editing a constant value
+//recreating this array and copying the values into a new array
+const copiedHobbiesArray = [...hobbies];
 
-//reference types only store an address pointing to the memory location where the array is stored
-//when we change an array the address points to the same location in memory
-//therefore, we are not actually editing the variable value, but the value its pointing to
-//these rules also apply to objects
+//will hold same values as hobbies
+console.log(copiedHobbiesArray);
 
-const hobbiesObject = {
-    name: 'Nata',
-    type: 'Programming'
-}
+//you can do the same with objects
+const person = {name: 'Nata', age: 26}
+//you can also copy the values of person object and add in the values of another object inside this object
+const copiedPerson = {...person, ...{hobby: 'traveling'}};
+console.log(copiedPerson);
 
-//Adding a new property to the object
-hobbiesObject.age = 26;
 
-console.log(hobbiesObject);
+//What is a rest operator?
+/**
+ * A function that takes in arguments and converts them to an array using rest operator
+ * @param args - takes in as many arguments as user passes to it and converts it directly to an array using rest operator
+ * @returns [] - returns an array
+ */
+const toArray = (...args) => args;
 
-//primitive type and not a reference type since this is a number
-const number = 12
-//reassigning this will not work since it is not a reference type variable
-// number = 13;
+//will return an array even though, we do not pass in array, we pass in single values one by one, but its converted to an array using rest operator
+console.log(toArray(1,2,3));
+
+//spread operator is used to pull out elements from the array or an object
+//rest operator is used to merge multiple elements into an array
