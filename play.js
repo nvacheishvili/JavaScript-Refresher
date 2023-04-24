@@ -1,36 +1,18 @@
-/**
- * Example of function that sums a and b arguments using the traditional function definition
- * @param a - expects a number
- * @param b - expects a number
- * @returns {number} returns the sum of a and b
- */
-
-function myFunction(a,b) {
-    return a+b;
+//How to declare an object - using {}
+const person = {
+    name: 'Nata',
+    age: 26,
+    // greet: () => {
+    //     console.log("Hi my name is "+this.name); -- this.name refers to global scope, not the object's therefore it this.name here would be undefined
+    // },
+    greet: function() {
+        //this.name here would have a value of Nata, since it refers to the scope of the object itself
+        console.log("Hi my name is ", this.name)
+    }
 }
 
-/**
- * Example of a function that sums a and b arguments using the arrow function definition ES6 Syntax
- * @param a - expects a number
- * @param b - expects a number
- * @returns {number} - returns the sum of a and b
- */
-const myArrowFunction = (a,b) => {
-    //Your other logic before returning a value would go here...
-    return a+b;
-}
+//See the output of a person
+console.log(person);
 
-//You can also rewrite the ^^^^ above function in a shorter way
-//Only do this if you have a single statement that would return a value, if you have multiple statements
-//that do some other actions inside the function that do not return the value right away, then do not do this.
-// const myArrowFunction = (a,b) => a+b;
-
-/**
- * Function that returns 10 directly
- * @returns {number}
- */
-const random = () => 10;
-
-
-//Running this file should give you the same results for myFunction and myArrowFunction if you pass the same arguments to each one of them
-console.log(myFunction(1,2), myArrowFunction(1,2), random());
+//See the output of greet function
+person.greet()
