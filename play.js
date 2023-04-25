@@ -1,28 +1,35 @@
-const hobbies = ["sports", "cooking"];
+//What is destructuring?
+//A way to extract data from arrays, objects, maps and sets into distinct variables
 
-//recreating this array and copying the values into a new array
-const copiedHobbiesArray = [...hobbies];
+const person = {
+    name: 'Nata',
+    age: 26,
+    occupation: 'Developer'
+}
+//ways to separate this into distinct variables?
+//The code below would be repetitive and confusing if there are multiple properties to extract
+// const name = person.name;
+// const age = person.age;
+// const occupation = person.occupation
 
-//will hold same values as hobbies
-console.log(copiedHobbiesArray);
+//Same result as above but using destructuring
+// const {name,age,occupation} = person;
+// console.log(name,age,occupation);
 
-//you can do the same with objects
-const person = {name: 'Nata', age: 26}
-//you can also copy the values of person object and add in the values of another object inside this object
-const copiedPerson = {...person, ...{hobby: 'traveling'}};
-console.log(copiedPerson);
+//Destructuring an array?
 
+const numbers = [1,2,3,4,5];
 
-//What is a rest operator?
-/**
- * A function that takes in arguments and converts them to an array using rest operator
- * @param args - takes in as many arguments as user passes to it and converts it directly to an array using rest operator
- * @returns [] - returns an array
- */
-const toArray = (...args) => args;
+//Code below also repetitive and complex if we have multiple items that we want to pull out of the array
+// const first = numbers[0];
+// const second = numbers[1];
+// const third = numbers[2];
 
-//will return an array even though, we do not pass in array, we pass in single values one by one, but its converted to an array using rest operator
-console.log(toArray(1,2,3));
+//Same code as above using destructuring would be
+const [first, second, third] = numbers;
+console.log(first, second,third);
 
-//spread operator is used to pull out elements from the array or an object
-//rest operator is used to merge multiple elements into an array
+//combination of destructuring and spread operator
+const {occupation, ...rest} = person;
+//would not contain occupation
+console.log(rest);
